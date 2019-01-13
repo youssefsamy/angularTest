@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar">
+        <div *ngFor="let item of data; let i = index" (click)="selectedIndex = i">
+          <div class="item" [ngStyle]="{'border-left': '6px solid ' + item.color, 'background-color': item.color}" [ngClass]="{'selected': i == selectedIndex}">
+            <div class="row">
+              <div class="col-3">
+                <span>#{{item.id}}</span>
+              </div>
+              <div class="col-9">
+                <div class="title">
+                  <span>{{item.title}}:</span>
+                </div>
+                <div class="text">
+                  <span>{{item.text}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="main">
+        <div class="main-title">Main Table</div>
+        <div class="table-wrapper">
+          <div class="addbtn-wrapper">
+            <button mat-raised-button color="primary" class="mr-1" (click)="add()">Add</button>
+          </div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th class="id">Id</th>
+                <th class="title">Title</th>
+                <th class="color">Color</th>
+                <th class="action">Action</th>
+              </tr>
+              <tr *ngFor="let item of data; let i = index">
+                <td>#{{item.id}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.color}}</td>
+                <th class="action">
+                  <button mat-raised-button color="accent" class="mr-1" (click)="edit(i)">Edit</button>
+                  <button mat-raised-button color="warn" (click)="remove(i)">Remove</button>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+
+      <div class="text-wrapper mt-4">
+        <textarea [(ngModel)]="data[selectedIndex].text"></textarea>
+      </div>
+    </div>
+  </div>
+</div>

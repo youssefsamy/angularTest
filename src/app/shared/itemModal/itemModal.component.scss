@@ -1,0 +1,30 @@
+.form {
+    .form-field {
+        margin-bottom: 14px;
+        
+        input {
+            width: 100%;
+            border: 1px solid #e1e3e6;
+            font-size: 20px;
+            line-height: 40px;
+            padding-left: 10px;
+
+            &:focus {
+                border: 1px solid #009fff;
+                outline-style: none;
+            }
+        }
+        textarea {
+            width: 100%;
+            border: 1px solid #e1e3e6;
+            font-size: 18px;
+            padding-left: 10px;
+            height: 90px;
+
+            &:focus {
+                border: 1px solid #009fff;
+                outline-style: none;
+            }
+        }
+    }
+}
